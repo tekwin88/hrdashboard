@@ -1,0 +1,58 @@
+<template name='showrecords'>
+  {{#if currentUser}}
+    {{#if isInRole 'admin'}}
+    <!-- Do nothing -->
+    {{else}}
+      <h3>Employee Records</h3>
+      <table class="one-employee-records">
+          <tr>
+            <th>Name</th>
+            <th>Emp No</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Position</th>
+            <th>Leave Taken</th>
+            <th>Leave Balance</th>
+            <th>Join Date</th>
+          </tr>
+          <tr>
+            <td>{{employee.name}}</td>
+            <td>{{employee.empno}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.contact}}</td>
+            <td>{{employee.position}}</td>
+            <td>{{employee.leaveconsumed}}</td>
+            <td>{{employee.leavebalance}}</td>
+            <td>{{employee.joindate}}</td>
+          </tr>
+      </table>
+    {{/if}}
+  {{/if}}
+  {{#if isInRole 'admin'}}
+    <table class="all-employees-records">
+      <tr>
+        <th>Name</th>
+        <th>Emp No</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Position</th>
+        <th>Leave Taken</th>
+        <th>Leave Balance</th>
+        <th>Join Date</th>
+      </tr>
+      {{#each employees}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{empno}}</td>
+        <td>{{email}}</td>
+        <td>{{contact}}</td>
+        <td>{{position}}</td>
+        <td>{{leaveconsumed}}</td>
+        <td>{{leavebalance}}</td>
+        <td>{{joindate}}</td>
+        <a href="#" class="delete-employee">X</a>
+      </tr>
+      {{/each}}
+    </table>
+  {{/if}}
+</template>

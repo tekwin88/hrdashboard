@@ -1,0 +1,13 @@
+<template name='layout'>
+    <body>
+        <div class="navbar-collapse collapse">
+            <nav class="main-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='/'>Home</a> | <a href='/dashboard'>Dashboard</a> |</li>
+                    {{> loginButtons}}
+                </ul>
+            </nav>
+        </div>
+        {{> yield}}
+    </body>
+</template>
